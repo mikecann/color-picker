@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse every PowerShell script
+        run: .\tests\check-syntax.ps1
+      - name: Core tests
+        run: .\tests\test_color_picker_core.ps1
+      - name: Installer ownership and repeatability tests
+        run: .\tests\test_install.ps1
+      - name: Native self-test
+        run: .\color-picker.ps1 -SelfTest

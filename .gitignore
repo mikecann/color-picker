@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+Desktop.ini
+.env
+.env.*
+!.env.example
+*.log
+*.exe
+*.dll
+*.ico
+TestResults/
+build/
+dist/
